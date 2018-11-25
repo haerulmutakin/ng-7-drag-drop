@@ -10,25 +10,25 @@ export class AppComponent {
   title = 'ng-drag-drog';
 
   foodList = [
-    'Oseng oseng ketoprak',
-    'Pecel Lele',
-    'Nasi campuran',
-    'Mendoan'
+    {nama: 'Oseng oseng ketoprak', harga: 20000},
+    {nama: 'Pecel Lele', harga: 20000},
+    {nama: 'Nasi campuran', harga: 20000},
+    {nama: 'Mendoan', harga: 20000}
   ];
 
   drinkList = [
-    'Es Teh',
-    'Es Jeruk',
-    'Air Putih'
+    {nama: 'Es Teh', harga: 20000},
+    {nama: 'Es Jeruk', harga: 20000},
+    {nama: 'Air Putih', harga: 20000}
   ];
 
   orderList = [];
 
-  drop(event: CdkDragDrop<string[]>) {
-    console.log(event);
+  drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
+      console.log(event.item.dropContainer.data[0]);
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -36,5 +36,19 @@ export class AppComponent {
         event.currentIndex
       );
     }
+  }
+
+  enter(event: CdkDragDrop<string[]>) {
+    // const a = event;
+    // event.container.data.forEach( item => {
+    //   console.log(item);
+    // });
+    // console.log(a.container.data);
+  }
+
+  delete(item: any) {
+    console.log(item);
+    this.orderList = [];
+    this.drinkList.push(item);
   }
 }

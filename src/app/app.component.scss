@@ -15,26 +15,32 @@
   
   .example-list {
     border: solid 1px #ccc;
+    height: 300px;
+    padding: 4px;
     min-height: 60px;
     background: #fff;
-    // border-radius: 4px;
-    overflow: hidden;
+    border-radius: 4px;
     display: block;
     overflow-y: auto;
   }
   
   .example-box {
     padding: 20px 10px;
-    border-bottom: solid 1px #ccc;
-    color: rgba(0, 0, 0, 0.87);
+    margin-bottom: 4px;
+    border-radius: 4px;
+    color: #000000;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
     cursor: move;
-    background: #F0FFFF;
+    background: #ccc;
     font-size: 14px;
+  }
+
+  .example-box:last-child {
+    border: none;
   }
   
   .cdk-drag-preview {
@@ -52,11 +58,7 @@
   .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
-  
-  .example-box:last-child {
-    border: none;
-  }
-  
+
   .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
   }
@@ -66,4 +68,8 @@
     border: dotted 3px #999;
     min-height: 60px;
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  .delete {
+      cursor: pointer;
   }
